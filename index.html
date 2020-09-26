@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Ini Title</title>
+    <link href="terang.css" rel="stylesheet" id="theme-link">
+</head>
+
+<body>
+    <button class="btn-toggle js-change-theme focus:outline-none">☀️</button>
+    <h1>Hey there! This is just a title</h2>
+        <p>I am just a boring text, existing here solely for the purpose of this demo</p>
+        <p>And I am just Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis voluptate earum cumque. At
+            provident, veritatis unde minus fuga accusamus corrupti magni</p>
+        <a href="http://roihan.netlify.com/">I am a link, don't click me please!</a>
+        <script>
+            const btn = document.querySelector(".btn-toggle");
+            const theme = document.querySelector("#theme-link");
+            btn.addEventListener("click", function () {
+                // Swap out the URL for the different stylesheets
+                if (theme.getAttribute("href") == "terang.css") {
+                    theme.href = "gelap.css";
+                } else {
+                    theme.href = "terang.css";
+                }
+            });
+
+            //Toggle mode
+            const toggle = document.querySelector(".js-change-theme");
+            const body = document.querySelector("body");
+            const profile = document.getElementById("profile");
+
+            toggle.addEventListener("click", () => {
+                if (body.classList.contains("text-gray-900")) {
+                    toggle.innerHTML = "☀️";
+                    body.classList.remove("text-gray-900");
+                    body.classList.add("text-gray-100");
+                    profile.classList.remove("bg-white");
+                    profile.classList.add("bg-gray-900");
+                } else {
+                    toggle.innerHTML = "🌙";
+                    body.classList.remove("text-gray-100");
+                    body.classList.add("text-gray-900");
+                    profile.classList.remove("bg-gray-900");
+                    profile.classList.add("bg-white");
+                }
+            });
+        </script>
+
+</body>
+
+</html>
